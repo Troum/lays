@@ -12,6 +12,11 @@ export default new Vuex.Store({
     brand: "Рекламная игра",
     authentication: !!Vue.prototype.$jwt.token(),
     menu: menu.menu,
+    emitted: {
+      status: false,
+      content: null
+    },
+    loading: false,
     prizes: [
       {
         value: 1,
@@ -42,6 +47,13 @@ export default new Vuex.Store({
   mutations: {
     authentication(state, data) {
       state.authentication = data;
+    },
+    emitted(state, data) {
+      state.emitted.status = data.status;
+      state.emitted.content = data.content;
+    },
+    loading(state, data) {
+      state.loading = data;
     }
   },
   actions: {
@@ -58,6 +70,12 @@ export default new Vuex.Store({
     },
     prizes(state) {
       return state.prizes;
+    },
+    emitted(state) {
+      return state.emitted;
+    },
+    loading(state) {
+      return state.loading;
     }
   }
 })

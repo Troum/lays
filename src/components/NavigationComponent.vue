@@ -8,7 +8,7 @@
                         <b-navbar-nav class="d-flex justify-content-between w-60 mx-auto">
                             <b-nav-item v-for="(item, i) in $store.getters.menu"
                                         active-class="underline"
-                                        @click="$router.push({name: item.route}).catch(()=>{})"
+                                        @click="$router.push({name: item.route}).catch(()=>{}); $bvModal.show('error-modal')"
                                         :key="i">
                                 <span class="material-icons-outlined md-36">{{ item.icon }}</span>
                                 <small>{{ item.title }}</small>

@@ -4,6 +4,7 @@ import FormDataService from "../services/form-data.service";
 import HandlerService from "../services/handler.service";
 import JWT from "../services/jwt-token.service";
 import {ButtonPlugin, CardPlugin,
+    OverlayPlugin,
     CollapsePlugin,
     FormFilePlugin,
     PaginationPlugin,
@@ -39,3 +40,4 @@ Vue.use(TabsPlugin);
 Vue.use(TablePlugin);
 Vue.use(FormFilePlugin);
 Vue.use(PaginationPlugin);
+Vue.use(OverlayPlugin);

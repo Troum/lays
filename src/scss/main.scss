@@ -8,6 +8,13 @@
 @import "~bootstrap-vue/dist/bootstrap-vue.min.css";
 @import "variables";
 
+.lays-text {
+  color: #DB2A1E;
+}
+
+.lays-text-dark {
+  color: #9F0024;
+}
 
 .lays-navbar {
   background: #FFDD00;
@@ -47,12 +54,24 @@
 }
 
 .lays-container {
-  margin-top: 130px;
-  min-height: calc(100vh - 206px);
+  margin-top: 80px;
+  min-height: calc(100vh - 90px);
   &.lays-cabinet {
     padding-top: 52px;
     background: #0589D0 url("~@/assets/blue.png") top center no-repeat;
     background-size: 100%;
+    & .lays-pagination {
+      & .page-link {
+        border: none!important;
+        background: transparent!important;
+        color: #fff;
+        font-weight: bold;
+        & span {
+          font-size: 1rem;
+        }
+      }
+    }
+
     & tr {
       border-bottom: 5px solid rgba(255,255,255,.33);
       & td {

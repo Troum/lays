@@ -1,7 +1,14 @@
 <template>
     <b-modal id="success-modal"
-             class="w-30" centered>
-        {{ content.success }}
+             dialog-class="w-32" hide-footer centered>
+        <div class="mb-3 text-center">
+            <p class="lays-text">
+                {{ content.title }}
+            </p>
+            <p class="lays-text-dark">
+                {{ content.success }}
+            </p>
+        </div>
     </b-modal>
 </template>
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import HandlerService from "../handler.service";
 import Vue from "vue";
 import JWT from "../jwt-token.service";
+import store from '../../store';
 
 Vue.use(HandlerService);
 Vue.use(JWT);
@@ -29,6 +30,9 @@ $http.interceptors.response.use(response => {
     return response;
 }, error => {
         switch (error.response.status) {
+            case 400:
+                store.commit('emitted', {status: true, content: error.response.data});
+                break;
             case 401:
             case 404:
             case 409:

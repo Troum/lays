@@ -85,8 +85,8 @@
                                               style="stroke: #DB2A1E;fill: none"></path>
                                     </svg>
                                     <span>
-                                        ознакомлен с <a class="lays-rules-agreement" href="#">&nbsp;правилами</a>
-                                    </span>
+                                    ознакомлен с <a class="lays-rules-agreement" href="#">&nbsp;правилами</a>
+                                </span>
                                 </p-check>
                             </b-form-group>
                         </b-col>
@@ -183,8 +183,8 @@
     export default {
         name: "RegisterFormComponent",
         components: {
-          'p-radio': PrettyRadio,
-          'p-check': PrettyCheck,
+            'p-radio': PrettyRadio,
+            'p-check': PrettyCheck,
         },
         data() {
             return {
@@ -217,13 +217,18 @@
         },
         methods: {
             submit() {
+                this.$store.commit('loading', true);
                 this.$httpService.post('api/v1/auth/register', this.$fdService.fill(this.form))
-                .then(response => {
-                    this.$root.$emit('success-modal', response.data.success);
-                })
-                .catch(error => {
-                    this.$root.$emit('error-modal', error.response.data.error);
-                })
+                    .then(response => {
+                        this.$bvModal.hide('modal');
+                        this.$root.$emit('success-modal', response.data);
+                    })
+                    .catch(error => {
+                        this.$root.$emit('error-modal', error.response.data);
+                    })
+                    .finally(() => {
+                        this.$store.commit('loading', false);
+                    })
             },
             setSex(event) {
                 this.form.sex = event.target.value;
