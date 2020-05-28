@@ -1,0 +1,29 @@
+{
+  "menu": [
+    {
+      "title": "Главная",
+      "route": "main",
+      "icon": "home"
+    },
+    {
+      "title": "Об игре",
+      "route": "about",
+      "icon": "info"
+    },
+    {
+      "title": "Призы",
+      "route": "prizes",
+      "icon": "card_giftcard"
+    },
+    {
+      "title": "FAQ",
+      "route": "products",
+      "icon": "contact_support"
+    },
+    {
+      "title": "Победители",
+      "route": "winners",
+      "icon": "emoji_events"
+    }
+  ]
+}

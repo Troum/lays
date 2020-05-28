@@ -1,32 +1,33 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+    b-container#app.m-0.p-0( fluid )
+        navigation-component
+        b-row.m-0.p-0
+            transition(
+                enter-active-class="animated fadeIn"
+                leave-active-class="animated fadeout"
+                mode="out-in" )
+                router-view
+        vue-snotify
+        modal-component
+        check-modal
+        success-modal
+        error-modal
 </template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+    export default {
+        mounted() {
+            document.addEventListener('click', this.clickEffect)
+        },
+        methods: {
+            clickEffect(e){
+                let d=document.createElement("div");
+                d.className="clickEffect";
+                d.style.top=e.clientY+"px";d.style.left=e.clientX+"px";
+                document.body.appendChild(d);
+                d.addEventListener('animationend',function(){d.parentElement.removeChild(d);}.bind(this));
+            }
+        }
     }
-  }
-}
+</script>
+<style lang="scss">
 </style>
