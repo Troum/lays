@@ -8,16 +8,16 @@
                         <b-navbar-nav class="d-flex justify-content-between w-60 mx-auto">
                             <b-nav-item v-for="(item, i) in $store.getters.menu"
                                         active-class="underline"
-                                        @click="$router.push({name: item.route}).catch(()=>{}); $bvModal.show('error-modal')"
+                                        @click="$router.push({name: item.route}).catch(()=>{})"
                                         :key="i">
-                                <span class="material-icons-outlined md-36">{{ item.icon }}</span>
+                                <img class="lays-icon" :src="`./icons/${item.icon}`" :alt="item.icon">
                                 <small>{{ item.title }}</small>
                             </b-nav-item>
                             <b-nav-item class="lays-auth ml-3"
                                         @click="openAuthorization"
                                         active-class="underline">
                                 <small class="text-uppercase font-weight-bold mr-1">войти</small>
-                                <span class="material-icons-outlined md-36">account_circle</span>
+                                <img class="lays-icon" src="@/assets/enter.svg" alt="Войти">
                             </b-nav-item>
                         </b-navbar-nav>
                     </b-collapse>

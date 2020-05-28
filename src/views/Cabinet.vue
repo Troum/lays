@@ -1,8 +1,8 @@
 <template>
-    <b-col cols="12" xl="10" class="lays-container lays-cabinet mx-auto">
+    <b-col cols="12" xl="10" class="lays-container lays-cabinet mx-auto position-relative">
         <b-row class="m-0 p-0">
-            <b-col class="m-0 p-0" cols="12">
-                <b-table v-if="items.length > 0" :fields="fields" :items="items"
+            <b-col class="m-0 p-0" cols="12" v-if="items.length > 0">
+                <b-table :fields="fields" :items="items"
                          :per-page="pagination.perPage"
                          :current-page="pagination.current">
                     <template v-slot:cell(bet)="data">
@@ -12,7 +12,7 @@
                         {{ data.value | status }}
                     </template>
                 </b-table>
-                <b-pagination class="mt-2 lays-pagination" v-if="items.length > 0"
+                <b-pagination class="mt-2 lays-pagination"
                               first-number last-number
                               v-model="pagination.current" align="center" :total-rows="rows"
                               :per-page="pagination.perPage" aria-controls="participants">
@@ -23,6 +23,13 @@
                         <font-awesome-icon :icon="['fas', 'caret-right']"></font-awesome-icon>
                     </template>
                 </b-pagination>
+            </b-col>
+            <b-col class="m-0 p-0" cols="12" v-else>
+                <p class="text-white text-uppercase h4 text-center font-weight-bold">
+                    Ты еще не зарегистрировал ни одного чека
+                </p>
+            </b-col>
+            <b-col class="m-0 p-0 mt-5" cols="12">
                 <b-form-group class="text-center">
                     <b-button class="lays-register-check"
                               @click="$bvModal.show('check-modal')"
@@ -30,7 +37,7 @@
                 </b-form-group>
             </b-col>
         </b-row>
-        <b-row class="m-0 p-0">
+        <b-row class="m-0 p-0 position-absolute" style="bottom: 1.25%">
             <b-col class="m-0 p-0" cols="12">
                 <p class="text-center font-weight-bold text-white">
                     Призы, участвующие в ближайшем розыгрыше 16.06.2020

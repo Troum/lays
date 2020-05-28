@@ -1,10 +1,10 @@
 <template>
-    <b-overlay
-            spinner-variant="danger"
-            spinner-type="grow"
-            spinner-small
-            :show="$store.getters.loading" rounded="sm">
-        <b-modal id="check-modal" hide-header-close hide-footer centered dialog-class="w-80">
+    <b-modal id="check-modal" hide-header-close hide-footer centered dialog-class="w-80">
+        <b-overlay
+                spinner-variant="danger"
+                spinner-type="grow"
+                spinner-small
+                :show="$store.getters.loading" rounded="sm">
             <template v-slot:modal-header>
                 <p class="d-block mx-auto mt-4 mb-0 font-weight-bold text-uppercase border-bottom red">Регистрация нового чека</p>
             </template>
@@ -90,8 +90,8 @@
                     </b-form-group>
                 </b-form>
             </validation-observer>
-        </b-modal>
-    </b-overlay>
+        </b-overlay>
+    </b-modal>
 </template>
 
 <script>

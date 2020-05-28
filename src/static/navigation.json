@@ -3,27 +3,22 @@
     {
       "title": "Главная",
       "route": "main",
-      "icon": "home"
-    },
-    {
-      "title": "Об игре",
-      "route": "about",
-      "icon": "info"
+      "icon": "home.svg"
     },
     {
       "title": "Призы",
       "route": "prizes",
-      "icon": "card_giftcard"
+      "icon": "prize.svg"
     },
     {
       "title": "FAQ",
       "route": "products",
-      "icon": "contact_support"
+      "icon": "faq.svg"
     },
     {
       "title": "Победители",
       "route": "winners",
-      "icon": "emoji_events"
+      "icon": "winners.svg"
     }
   ]
 }
