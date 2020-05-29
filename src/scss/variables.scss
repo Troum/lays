@@ -1,5 +1,16 @@
-@import url('http://allfont.ru/allfont.css?fonts=raleway-bold');
-@import url('http://allfont.ru/allfont.css?fonts=raleway-extralight');
+@font-face {
+  font-family: "Raleway Bold";
+  src: url("./RalewayBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face{
+  font-family: "Raleway ExtraLight";
+  src: url("./RalewayExtraLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 
 ::-webkit-scrollbar {
   width: 0!important;
@@ -129,7 +140,7 @@ $icon-size: (
   }
 }
 body {
-  font-family: 'Raleway Bold', arial;
+  font-family: 'Raleway Bold';
   background: #FEDB02 url("~@/assets/yellow.png") left bottom no-repeat;
   background-size: contain;
   height: 100vh;
