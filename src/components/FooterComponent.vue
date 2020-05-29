@@ -25,13 +25,13 @@
                         <a @click="$root.$emit('feedback')" class="lays-footer-link">обратная связь</a>
                     </div>
                     <div class="d-inline-flex justify-content-start w-50">
-                        <a class="lays-footer-link">
+                        <a href="https://www.instagram.com/lays_by/" class="lays-footer-link">
                             <img class="social-icon" src="~@/assets/icon/inst.svg" alt="Lays Instagram">
                         </a>
-                        <a class="lays-footer-link">
+                        <a href="https://www.facebook.com/laysbelarus/" class="lays-footer-link">
                             <img class="social-icon" src="~@/assets/icon/fb.svg" alt="Lays Facebook">
                         </a>
-                        <a class="lays-footer-link">
+                        <a href="https://vk.com/laysbelarus" class="lays-footer-link">
                             <img class="social-icon" src="~@/assets/icon/vk.svg" alt="Lays VK">
                         </a>
                     </div>
@@ -42,7 +42,7 @@
             <b-row class="m-0 p-0 mx-auto w-100">
                 <b-col class="m-0 mx-auto" cols="12">
                     <div class="d-flex justify-content-around align-items-center mb-2">
-                        <a @click="$router.push({name: 'rules'})" class="lays-footer-link">полные правила</a>
+                        <a href="https://lays.by/rules/rules.pdf" class="lays-footer-link">полные правила</a>
                         <a @click="$root.$emit('feedback')" class="lays-footer-link">обратная связь</a>
                     </div>
                     <div class="d-flex justify-content-center align-items-center text-center">
@@ -62,13 +62,13 @@
                         </small>
                     </div>
                     <div class="d-flex justify-content-center align-items-center mt-2">
-                        <a class="lays-footer-link">
+                        <a href="https://www.instagram.com/lays_by/" class="lays-footer-link">
                             <img class="social-icon" src="~@/assets/icon/inst.svg" alt="Lays Instagram">
                         </a>
-                        <a class="lays-footer-link">
+                        <a href="https://www.facebook.com/laysbelarus/" class="lays-footer-link">
                             <img class="social-icon" src="~@/assets/icon/fb.svg" alt="Lays Facebook">
                         </a>
-                        <a class="lays-footer-link">
+                        <a href="https://vk.com/laysbelarus" class="lays-footer-link">
                             <img class="social-icon" src="~@/assets/icon/vk.svg" alt="Lays VK">
                         </a>
                     </div>
