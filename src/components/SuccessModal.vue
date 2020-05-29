@@ -3,7 +3,7 @@
              :dialog-class="isMobile ? 'w-96' : 'w-32'" hide-footer centered>
         <div class="mb-3 text-center">
             <p class="lays-text">
-                {{ content.title ? content.title : 'Успешно!' }}
+                {{ content.title ? content.title : 'Привет!' }}
             </p>
             <p class="lays-text-dark">
                 {{ content.success }}

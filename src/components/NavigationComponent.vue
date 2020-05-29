@@ -69,7 +69,12 @@
                 }
             },
             scrollTo(id) {
-                document.getElementById(id).scrollIntoView({block: "start", behavior: "smooth"});
+                if (this.$route.name.includes('cabinet')) {
+                    this.$router.push({name: 'main'})
+                } else {
+                    document.getElementById(id).scrollIntoView({block: "start", behavior: "smooth"});
+                }
+
             }
         }
     }

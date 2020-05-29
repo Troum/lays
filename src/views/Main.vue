@@ -25,6 +25,9 @@
                         <img src="~@/assets/mechanic/3.png" alt="Lays 1 шаг" class="img-fluid">
                     </div>
                 </div>
+                <div class="register-check">
+                    <b-button @click="uploadCheck" class="lays-register-check" type="button">Загрузи чек</b-button>
+                </div>
             </div>
             <div class="lays-home-column">
                 <div class="lays-home-block red-block"></div>

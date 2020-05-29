@@ -550,6 +550,19 @@ div.clickEffect{
   }
 }
 .lays-time {
+  & .btn {
+    &.h-auto {
+      margin-left: 1.25rem;
+      & svg {
+        opacity: 0!important;
+      }
+    }
+  }
+
+  & .b-form-timepicker {
+    border-radius: 100px;
+  }
+
   & .bv-no-focus-ring {
     display: flex;
     position: relative;
@@ -567,14 +580,20 @@ div.clickEffect{
         cursor: pointer;
       }
     }
-    & .time-picker {
-      width: 100%;
-      & .dropdown {
-        border: 1px solid #a1a1a1;
-        width: 100% !important;
-        & .select-list {
-          width: 100% !important;
-        }
+    & .lays-timepicker {
+      & + .form-control {
+        display: inline-flex;
+        justify-content: start;
+        align-items: center;
+        margin-bottom: 0!important;
+        color: #DB2A1E !important;
+        font-size: .8rem!important;
+        text-transform: uppercase;
+        margin-left: -6.5% !important;
+        height: calc(1.5em + 1.2rem + 2px) !important;
+      }
+      & .b-form-spinbutton {
+        border: 1px solid #9F0024!important;
       }
     }
   }

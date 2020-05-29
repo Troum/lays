@@ -41,12 +41,16 @@
                     </validation-provider>
                     <validation-provider name="Время совершения покупки" rules="required" v-slot="{errors}">
                         <b-form-group class="lays-time">
-                            <vue-timepicker
-                                    @close="setTime"
-                                    v-model="form.bought_time"
-                                    close-on-complete hide-clear-button
-                                    hour-label="Часы" minute-label="Минуты" second-label="Секунды"
-                                    placeholder="время совершения покупки" input-class="lays-input" format="HH:mm:ss"></vue-timepicker>
+                            <b-form-timepicker
+                                                @context="onContext"
+                                                v-bind="labels['ru'] || {}"
+                                               locale="ru"
+                                               hide-header
+                                               menu-class="lays-timepicker"
+                                               no-close-button
+                                               show-seconds
+                                               placeholder="время совершения покупки"
+                                               v-model="form.bought_time"></b-form-timepicker>
                             <div class="lays-dropdown-icon">
                                 <font-awesome-icon :icon="['fas', 'caret-down']" ></font-awesome-icon>
                             </div>
@@ -78,7 +82,7 @@
                             </b-col>
                         </div>
                     </b-form-group>
-                    <b-form-group class="text-center">
+                    <b-form-group class="text-center mt-4">
                         <b-button class="lays-register-check" type="submit">
                             Зарегистрировать чек
                         </b-button>
@@ -90,7 +94,6 @@
 
 <script>
     import Datepicker from 'vuejs-datepicker';
-    import VueTimepicker from 'vue2-timepicker'
     import { ru } from 'vuejs-datepicker/dist/locale'
     import PrettyCheck from "pretty-checkbox-vue/check";
     export default {
@@ -100,7 +103,6 @@
         },
         components: {
             Datepicker,
-            VueTimepicker,
             'p-check': PrettyCheck,
         },
         data() {
@@ -112,23 +114,44 @@
                     bought_time: null,
                     bet: null
                 },
-                ru: ru
+                ru: ru,
+                labels: {
+                    ru: {
+                        labelHours: 'Часы',
+                        labelMinutes: 'Минут',
+                        labelSeconds: 'Секунды',
+                        labelIncrement: '+',
+                        labelDecrement: '-',
+                        labelSelected: 'Выбранное время',
+                        labelNoTimeSelected: 'Время не выбрано',
+                        labelCloseButton: 'Закрыть'
+                    }
+                }
             }
         },
         methods: {
             submit() {
-                this.setDate();
-                this.$store.commit('loading', true);
-                this.$httpService.post('api/v1/auth/bet', this.$fdService.fill(this.form))
-                    .then(response => {
-                        this.$bvModal.hide('check-modal');
-                        this.$root.$emit('success-modal', response.data);
-                        this.$root.$emit('reload');
-                        this.$fdService.reset(this.form);
-                    })
-                    .finally(() => {
-                        this.$store.commit('loading', false);
-                    })
+                if (Date.parse(this.form.bought_date) > Date.parse('2020-05-30T00:00:00')) {
+                    this.setDate();
+                    this.$store.commit('loading', true);
+                    this.$httpService.post('api/v1/auth/bet', this.$fdService.fill(this.form))
+                        .then(response => {
+                            this.$bvModal.hide('check-modal');
+                            this.$root.$emit('success-modal', response.data);
+                            this.$root.$emit('reload');
+                            this.$fdService.reset(this.form);
+                        })
+                        .finally(() => {
+                            this.$store.commit('loading', false);
+                        })
+                } else {
+                    this.$store.commit('emitted', {
+                        status: true,
+                        content: {error: 'Чек не принят. Дата чека не соответствует периоду регистрации на текущий розыгрыш. '
+                        }
+                    });
+                    return;
+                }
             },
             openDate() {
                 this.$refs.programaticDate.showCalendar();
@@ -146,11 +169,11 @@
             addFile(file) {
                 this.form.file = file;
             },
-            setTime() {
-                this.form.bought_time = `${this.form.bought_time.HH}:${this.form.bought_time.mm}:${this.form.bought_time.ss}`;
-            },
             setDate() {
                 this.form.bought_date = new Date(this.form.bought_date).toLocaleDateString('ru');
+            },
+            onContext(ctx) {
+                this.form.bought_time = ctx.formatted;
             }
         }
     }

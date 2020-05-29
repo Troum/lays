@@ -10,6 +10,7 @@ import {
     FormFilePlugin,
     PaginationPlugin,
     FormCheckboxPlugin,
+    FormTimepickerPlugin,
     FormPlugin, FormGroupPlugin,
     FormInputPlugin, NavbarPlugin, NavPlugin, FormTextareaPlugin,
     FormDatepickerPlugin, TabsPlugin,
@@ -45,3 +46,4 @@ Vue.use(PaginationPlugin);
 Vue.use(OverlayPlugin);
 Vue.use(FormTextareaPlugin);
 Vue.use(SidebarPlugin);
+Vue.use(FormTimepickerPlugin);
