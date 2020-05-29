@@ -1,6 +1,6 @@
 <template>
     <b-modal id="success-modal"
-             dialog-class="w-32" hide-footer centered>
+             :dialog-class="isMobile ? 'w-96' : 'w-32'" hide-footer centered>
         <div class="mb-3 text-center">
             <p class="lays-text">
                 {{ content.title ? content.title : 'Успешно!' }}

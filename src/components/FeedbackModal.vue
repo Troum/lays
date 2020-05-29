@@ -1,7 +1,7 @@
 <template>
     <b-modal id="feedback"
              centered
-             dialog-class="w-60"
+             :dialog-class="isMobile ? 'w-96' : 'w-60'"
              hide-header hide-footer>
         <b-row class="m-0 p-0">
             <b-col class="m-0 p-2 pt-4 text-center">
