@@ -245,7 +245,9 @@
                     </b-row>
                     <b-row class="m-0 p-0 my-3">
                         <b-col class="mx-auto text-center" cols="10">
-                            <span @click="show = !show" class="text-white text-uppercase font-weight-bold" style="text-decoration: underline">Другие вопросы</span>
+                            <span @click="show = !show" class="text-white text-uppercase font-weight-bold" style="text-decoration: underline">
+                                {{ !show ? 'Другие вопросы' : 'Скрыть' }}
+                            </span>
                         </b-col>
                     </b-row>
                 </b-col>

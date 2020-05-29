@@ -1,9 +1,12 @@
 <template>
-    <b-col cols="12" xl="10" class="lays-container lays-cabinet mx-auto position-relative">
+    <b-col id="cabinet" cols="12" xl="10"
+           class="lays-container lays-cabinet mx-auto position-relative"
+           :style="$route.name.includes('cabinet') ? 'overflow-y: auto' : ''">
         <b-row class="m-0 p-0">
             <b-col class="m-0 p-0" cols="12" v-if="items.length > 0">
                 <b-table :fields="fields" :items="items"
                          :per-page="pagination.perPage"
+                         responsive="lg"
                          :current-page="pagination.current">
                     <template v-slot:cell(bet)="data">
                         {{ data.value | bet }}
@@ -29,7 +32,7 @@
                     Ты еще не зарегистрировал ни одного чека
                 </p>
             </b-col>
-            <b-col class="m-0 p-0 mt-5" cols="12">
+            <b-col class="m-0 p-0 mt-1 mt-xl-5" cols="12">
                 <b-form-group class="text-center">
                     <b-button class="lays-register-check"
                               @click="$bvModal.show('check-modal')"
@@ -37,22 +40,24 @@
                 </b-form-group>
             </b-col>
         </b-row>
-        <b-row class="m-0 p-0 position-absolute w-100" style="bottom: 1.25%">
-            <b-col class="m-0 p-0" cols="12">
-                <p class="text-center font-weight-bold text-white">
+        <b-row :class="!isMobile ? 'm-0 p-0 mx-auto w-80' : ''">
+            <b-col :class="!isMobile ? 'm-0 p-0' : 'd-flex justify-content-center align-items-center flex-column'" cols="12">
+                <p class="text-center font-weight-bold text-white" :style="isMobile ? 'font-size: 70%' : ''">
                     Призы, участвующие в ближайшем розыгрыше 16.06.2020
                 </p>
-                <b-form-group class="pl-5 pr-5">
-                    <b-row class="m-0 p-4 pl-5 pr-5">
-                        <b-col class="d-flex justify-content-center align-items-center"
-                               cols="3"
+                <b-form-group v-if="!isMobile" class="pl-2 pr-2">
+                    <div class="lays-cabinet-prizes p-xl-1 pl-xl-2 pr-xl-2">
+                        <div class="lays-cabinet-prizes-item"
                                v-for="prize in $store.getters.prizes"
                                :style="`background: ${prize.color} url('./prizes/${prize.circle}') center no-repeat; background-size: 150%`"
                                :key="prize.image">
                             <img :src="`./prizes/${prize.image}`" :alt="prize.image" class="img-fluid"
                                  style="filter: drop-shadow(-10px 5px 8px rgba(0, 0, 0, .34))">
-                        </b-col>
-                    </b-row>
+                        </div>
+                    </div>
+                </b-form-group>
+                <b-form-group v-else class="w-100 d-flex justify-content-center align-content-center">
+                    <img src="@/assets/mobile-cabinet-prizes.png" alt="Prizes" class="img-fluid">
                 </b-form-group>
             </b-col>
         </b-row>
@@ -62,6 +67,9 @@
 <script>
     export default {
         name: "Cabinet",
+        props: {
+          isMobile: Boolean
+        },
         data() {
             return {
                 items: [],

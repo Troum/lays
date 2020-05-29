@@ -1,5 +1,23 @@
 @import url('http://allfont.ru/allfont.css?fonts=raleway-bold');
 @import url('http://allfont.ru/allfont.css?fonts=raleway-extralight');
+
+::-webkit-scrollbar {
+  width: 0!important;
+  background: transparent!important; /* make scrollbar transparent */
+}
+
+::-webkit-scrollbar-button {
+  display: none!important;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none!important;
+}
+
+::-webkit-scrollbar-track {
+  display: none!important;
+}
+
 $icon-size: (
         18: 18px,
         24: 24px,
@@ -52,6 +70,34 @@ $icon-size: (
     border: none;
   }
 }
+
+#check-modal {
+  & .lays-bet-prizes {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    & .prize-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & img {
+        @media (max-width: 992px) {
+          max-width: 70%;
+        }
+      }
+      &:first-of-type {
+        @media (max-width: 992px) {
+          grid-column: 1 / -1;
+        }
+      }
+    }
+  }
+}
+
 #success-modal, #error-modal {
   & .modal-header {
     padding: .5rem .8rem;
@@ -137,6 +183,9 @@ div.clickEffect{
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
+  @media (max-width: 992px) {
+    font-size: 65%;
+  }
 }
 .table th {
    border-top: 5px solid rgba(255,255,255,.33);
@@ -275,12 +324,15 @@ div.clickEffect{
   }
 }
 .lays-container {
-  min-height: calc(100vh - 76px - 170px);
+  height: calc(100vh - 76px - 170px);
   &.lays-cabinet {
     margin-top: 25px;
     padding-top: 52px;
     background: #0589D0 url("~@/assets/blue.png") top center no-repeat;
     background-size: 100%;
+    @media (max-width: 992px) {
+      padding-top: 10px;
+    }
     & .lays-pagination {
       & .page-link {
         border: none!important;
@@ -299,6 +351,9 @@ div.clickEffect{
         text-align: center!important;
         color: #fff;
         font-weight: bold!important;
+        @media (max-width: 992px) {
+          font-size: 50%;
+        }
       }
     }
   }
@@ -433,6 +488,9 @@ div.clickEffect{
     align-items: center;
     max-width: 40%;
     margin: auto;
+    @media (max-width: 992px) {
+      max-width: 90%;
+    }
     & .lays-file-icon {
       position: absolute;
       z-index: 3;
@@ -473,6 +531,9 @@ div.clickEffect{
     align-items: center;
     max-width: 40%;
     margin: auto;
+    @media (max-width: 992px) {
+      max-width: 90%;
+    }
     & .lays-dropdown-icon {
       position: absolute;
       z-index: 3;
@@ -495,6 +556,9 @@ div.clickEffect{
     align-items: center;
     max-width: 40%;
     margin: auto;
+    @media (max-width: 992px) {
+      max-width: 90%;
+    }
     & .lays-dropdown-icon {
       position: absolute;
       z-index: 3;
@@ -530,6 +594,10 @@ div.clickEffect{
 }
 .lays-chosen-prize {
   transform: scale(1, 1.1);
+  @media (max-width: 992px) {
+    transform: none;
+    border: 3px solid #9F0024;
+  }
 }
 .lays-sidebar {
   background: #FFDD00!important;

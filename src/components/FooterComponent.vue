@@ -1,5 +1,5 @@
 <template>
-    <b-row class="m-0 p-0 lays-footer" >
+    <b-row class="m-0 p-0 lays-footer">
         <b-col v-if="!isMobile" class="m-0 pl-0 pt-3 pb-3 mx-auto" cols="11">
             <b-row class="m-0 p-0">
                 <b-col class="m-0 p-0" cols="8">

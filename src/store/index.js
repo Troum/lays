@@ -19,16 +19,10 @@ export default new Vuex.Store({
     loading: false,
     prizes: [
       {
-        value: 1,
-        image: 'scooter.png',
+        value: 5,
+        image: 'money.png',
         color: '#FFD301',
         circle: 'yellow.png'
-      },
-      {
-        value: 2,
-        image: 'apple.png',
-        color: '#00954B',
-        circle: 'green.png'
       },
       {
         value: 3,
@@ -37,16 +31,22 @@ export default new Vuex.Store({
         circle: 'red.png'
       },
       {
+        value: 2,
+        image: 'apple.png',
+        color: '#00954B',
+        circle: 'green.png'
+      },
+      {
+        value: 1,
+        image: 'scooter.png',
+        color: '#FFD301',
+        circle: 'yellow.png'
+      },
+      {
         value: 4,
         image: 'xbox.png',
         color: '#0592DA',
         circle: 'blue.png'
-      },
-      {
-        value: 5,
-        image: 'money.png',
-        color: '#FFD301',
-        circle: 'yellow.png'
       }
     ]
   },

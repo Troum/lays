@@ -66,9 +66,8 @@
                     </b-form-group>
                     <b-form-group>
                         <p class="d-block text-center font-weight-bold" style="color: #9F0024">Выбрать приз:</p>
-                        <b-row class="m-0 p-4">
-                            <b-col class="d-flex justify-content-center align-items-center"
-                                   cols="3"
+                        <div class="lays-bet-prizes">
+                            <b-col class="prize-item"
                                    :id="`prize-${i}`"
                                    v-for="(prize, i) in $store.getters.prizes"
                                    :data-prize="prize.value"
@@ -77,7 +76,7 @@
                             >
                                 <img :src="`./prizes/${prize.image}`" :alt="prize.image" class="img-fluid" style="filter: drop-shadow(-10px 5px 8px rgba(0, 0, 0, .34))">
                             </b-col>
-                        </b-row>
+                        </div>
                     </b-form-group>
                     <b-form-group class="text-center">
                         <b-button class="lays-register-check" type="submit">
