@@ -1,0 +1,53 @@
+#prizes {
+  display: grid;
+  height: calc(100vh - 76px - 140px);
+  grid-template-columns: 20% 1fr 30%;
+  grid-template-rows: 1fr;
+  & .lays-prizes-column {
+    &.first-column {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 40% 60%;
+      & .blue-block {
+        height: 100%;
+        background: url("~@/assets/prizes-blocks/blue.jpg") top center no-repeat;
+        background-size: cover;
+      }
+      & .yellow-block {
+        height: 100%;
+        background: url("~@/assets/prizes-blocks/yellow.jpg") top center no-repeat;
+        background-size: cover;
+      }
+    }
+    &.second-column {
+      display: grid;
+      grid-template-rows: 60% 40%;
+      grid-template-columns: 1fr;
+      & .red-block {
+        height: 100%;
+        background: url("~@/assets/prizes-blocks/red.jpg") top center no-repeat;
+        background-size: cover;
+      }
+      & .two-blocks {
+        display: grid;
+        grid-template-columns: 38% 62%;
+        grid-template-rows: 1fr;
+        & .green-block {
+          height: 100%;
+          background: #00954b url("~@/assets/prizes-blocks/green.jpg") top center no-repeat;
+          background-size: contain;
+        }
+        & .navy-block {
+          height: 100%;
+          background: url("~@/assets/prizes-blocks/navy.jpg") top center no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+    &.third-column {
+      height: 100%;
+      background: url("~@/assets/prizes-blocks/money.jpg") top center no-repeat;
+      background-size: cover;
+    }
+  }
+}

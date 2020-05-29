@@ -2,7 +2,7 @@
     <validation-observer ref="observer" v-slot="{ passes }">
         <b-form @submit.prevent="passes(submit)">
             <b-row class="m-0 p-0">
-                <b-col class="m-0 p-0" cols="6">
+                <b-col class="m-0 p-0" cols="12" xl="6">
                     <b-row style="margin-top: 24px">
                         <b-col class="mx-auto my-2 p-0" cols="10">
                             <validation-provider name="Фамилия" rules="required" v-slot="{errors}">
@@ -53,7 +53,7 @@
                                               v-mask="{mask: '99.99.9999', greedy: true}"
                                               placeholder="дата рождения"
                                               autocomplete="off"
-                                              v-model="form.login"></b-form-input>
+                                              v-model="form.birth"></b-form-input>
                             </b-form-group>
                             <validation-provider name="Номер телефона" rules="required" v-slot="{errors}">
                                 <b-form-group label-for="phone">
@@ -78,7 +78,7 @@
                                     <div class="text-danger"><small>{{ errors[0] }}</small></div>
                                 </transition>
                             </validation-provider>
-                            <b-form-group class="lays-rules-agreement">
+                            <b-form-group v-if="!isMobile" class="lays-rules-agreement">
                                 <p-check class="p-svg p-curve p-bigger" v-model="agreement">
                                     <svg slot="extra" class="svg svg-icon" viewBox="0 0 20 20">
                                         <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z"
@@ -92,7 +92,7 @@
                         </b-col>
                     </b-row>
                 </b-col>
-                <b-col class="m-0 p-0" cols="6">
+                <b-col class="m-0 p-0" cols="12" xl="6">
                     <p class="text-uppercase mb-0 ml-4 font-weight-bold lays-post-address" style="color: #DB2A1E">почтовый адрес:</p>
                     <b-row class="mb-0">
                         <b-col class="mx-auto my-2 p-0" cols="10">
@@ -166,6 +166,19 @@
                         </b-col>
                     </b-row>
                 </b-col>
+                <b-col v-if="isMobile"  class="m-0 p-0" cols="12">
+                    <b-form-group class="lays-rules-agreement text-center">
+                        <p-check class="p-svg p-curve p-bigger" v-model="agreement">
+                            <svg slot="extra" class="svg svg-icon" viewBox="0 0 20 20">
+                                <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z"
+                                      style="stroke: #DB2A1E;fill: none"></path>
+                            </svg>
+                            <span>
+                                    ознакомлен с <a class="lays-rules-agreement" href="#">&nbsp;правилами</a>
+                                </span>
+                        </p-check>
+                    </b-form-group>
+                </b-col>
                 <b-col class="m-0" cols="12">
                     <b-form-group class="text-center my-2">
                         <b-button :disabled="!agreement"
@@ -182,6 +195,9 @@
     import PrettyCheck from 'pretty-checkbox-vue/check';
     export default {
         name: "RegisterFormComponent",
+        props: {
+            isMobile: Boolean
+        },
         components: {
             'p-radio': PrettyRadio,
             'p-check': PrettyCheck,

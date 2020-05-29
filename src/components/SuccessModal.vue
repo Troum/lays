@@ -15,6 +15,9 @@
 <script>
     export default {
         name: "SuccessModal",
+        props: {
+            isMobile: Boolean
+        },
         data() {
             return {
                 content: ''

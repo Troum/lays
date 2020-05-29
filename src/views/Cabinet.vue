@@ -37,7 +37,7 @@
                 </b-form-group>
             </b-col>
         </b-row>
-        <b-row class="m-0 p-0 position-absolute" style="bottom: 1.25%">
+        <b-row class="m-0 p-0 position-absolute w-100" style="bottom: 1.25%">
             <b-col class="m-0 p-0" cols="12">
                 <p class="text-center font-weight-bold text-white">
                     Призы, участвующие в ближайшем розыгрыше 16.06.2020

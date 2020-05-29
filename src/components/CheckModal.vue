@@ -101,6 +101,9 @@
     import PrettyCheck from "pretty-checkbox-vue/check";
     export default {
         name: "CheckModal",
+        props: {
+            isMobile: Boolean
+        },
         components: {
             Datepicker,
             VueTimepicker,

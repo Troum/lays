@@ -2,9 +2,9 @@
     <b-modal id="error-modal"
              @hidden="onClose"
              v-model="$store.getters.emitted.status"
-             dialog-class="w-30" hide-footer centered>
-        <div class="mb-3">
-            {{ $store.getters.emitted.status ? $store.getters.emitted.content.error : content.error }}
+             :dialog-class="isMobile ? 'w-96' : 'w-30'" hide-footer centered>
+        <div class="mb-5 text-center">
+            {{ $store.getters.emitted.content.error  }}
         </div>
     </b-modal>
 </template>
@@ -12,6 +12,9 @@
 <script>
     export default {
         name: "ErrorModal",
+        props: {
+            isMobile: Boolean
+        },
         data() {
             return {
                 content: ''

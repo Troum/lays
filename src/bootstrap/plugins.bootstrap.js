@@ -3,17 +3,19 @@ import HttpService from "../services/http.service";
 import FormDataService from "../services/form-data.service";
 import HandlerService from "../services/handler.service";
 import JWT from "../services/jwt-token.service";
-import {ButtonPlugin, CardPlugin,
+import {
+    ButtonPlugin, CardPlugin,
     OverlayPlugin,
     CollapsePlugin,
     FormFilePlugin,
     PaginationPlugin,
     FormCheckboxPlugin,
     FormPlugin, FormGroupPlugin,
-    FormInputPlugin, NavbarPlugin, NavPlugin,
+    FormInputPlugin, NavbarPlugin, NavPlugin, FormTextareaPlugin,
     FormDatepickerPlugin, TabsPlugin,
     TablePlugin,
-    ListGroupPlugin, LayoutPlugin, ModalPlugin, InputGroupPlugin, FormRadioPlugin } from "bootstrap-vue";
+    ListGroupPlugin, LayoutPlugin, ModalPlugin, InputGroupPlugin, FormRadioPlugin, SidebarPlugin
+} from "bootstrap-vue";
 const VueInputMask = require('vue-inputmask').default;
 
 Vue.use(VueInputMask);
@@ -41,3 +43,5 @@ Vue.use(TablePlugin);
 Vue.use(FormFilePlugin);
 Vue.use(PaginationPlugin);
 Vue.use(OverlayPlugin);
+Vue.use(FormTextareaPlugin);
+Vue.use(SidebarPlugin);

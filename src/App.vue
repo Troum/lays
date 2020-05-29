@@ -1,20 +1,28 @@
 <template lang="pug">
     b-container#app.m-0.p-0( fluid )
-        navigation-component
+        navigation-component( :isMobile="isMobile" )
         b-row.m-0.p-0
             transition(
-                enter-active-class="animated fadeIn"
-                leave-active-class="animated fadeout"
+                enter-active-class="animated slideInLeft"
+                leave-active-class="animated slideOutRight"
                 mode="out-in" )
-                router-view
+                router-view( :isMobile="isMobile" )
+        footer-component( :isMobile="isMobile" )
         vue-snotify
-        modal-component
-        check-modal
-        success-modal
-        error-modal
+        modal-component( :isMobile="isMobile" )
+        check-modal( :isMobile="isMobile" )
+        success-modal( :isMobile="isMobile" )
+        error-modal( :isMobile="isMobile" )
+        feedback-modal( :isMobile="isMobile" )
 </template>
 <script>
+    import { isMobile } from 'mobile-device-detect';
     export default {
+        data() {
+          return {
+              isMobile: isMobile
+          }
+        },
         mounted() {
             document.addEventListener('click', this.clickEffect)
         },

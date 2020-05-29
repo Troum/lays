@@ -41,6 +41,12 @@ export default new Vuex.Store({
         image: 'xbox.png',
         color: '#0592DA',
         circle: 'blue.png'
+      },
+      {
+        value: 5,
+        image: 'money.png',
+        color: '#FFD301',
+        circle: 'yellow.png'
       }
     ]
   },
