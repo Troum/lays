@@ -21,7 +21,7 @@
                 </b-col>
                 <b-col class="d-flex justify-content-around align-items-center m-0" cols="4">
                     <div class="d-inline-block m-0 p-0 w-50">
-                        <a @click="$router.push({name: 'rules'})" class="lays-footer-link">полные правила</a>
+                        <a href="https://lays.by/rules/rules.pdf" class="lays-footer-link">полные правила</a>
                         <a @click="$root.$emit('feedback')" class="lays-footer-link">обратная связь</a>
                     </div>
                     <div class="d-inline-flex justify-content-start w-50">
