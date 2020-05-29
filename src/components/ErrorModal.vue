@@ -4,7 +4,7 @@
              v-model="$store.getters.emitted.status"
              :dialog-class="isMobile ? 'w-96' : 'w-30'" hide-footer centered>
         <div class="mb-5 text-center">
-            {{ $store.getters.emitted.content.error  }}
+            {{ $store.getters.emitted.status ? $store.getters.emitted.content.error : ''  }}
         </div>
     </b-modal>
 </template>
@@ -15,14 +15,8 @@
         props: {
             isMobile: Boolean
         },
-        data() {
-            return {
-                content: ''
-            }
-        },
         mounted() {
-            this.$root.$on('error-modal', (data) => {
-                this.content = data;
+            this.$root.$on('error-modal', () => {
                 this.$bvModal.show('error-modal')
             })
         },

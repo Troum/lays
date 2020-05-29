@@ -27,8 +27,9 @@
                         <small class="text-uppercase font-weight-bold mr-1 lays-text-dark d-inline-block border-bottom red">
                             {{ $jwt.token() ? 'кабинет' : 'войти' }}
                         </small>
-                        <img class="lays-icon" src="@/assets/enter.svg" alt="Войти"></b-navbar-brand>
-                    <b-collapse id="nav-collapse">
+                        <img class="lays-icon" src="@/assets/enter.svg" alt="Войти">
+                    </b-navbar-brand>
+                    <b-collapse v-if="!isMobile" id="nav-collapse" is-nav>
                         <b-navbar-nav class="d-flex justify-content-between w-60 mx-auto">
                             <b-nav-item v-for="(item, i) in $store.getters.menu"
                                         active-class="underline"
