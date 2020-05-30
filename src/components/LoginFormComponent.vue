@@ -49,6 +49,7 @@
                         this.$jwt.store(response.data.token);
                         this.$store.commit('authentication', response.data.token);
                         this.$router.push({name: 'cabinet'});
+                        this.$root.$emit('loggedIn', true);
                     })
                     .catch(error => {
                         this.$handler.warning(error)

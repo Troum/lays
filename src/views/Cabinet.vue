@@ -43,7 +43,7 @@
         <b-row :class="!isMobile ? 'm-0 p-0 mx-auto w-80' : ''">
             <b-col :class="!isMobile ? 'm-0 p-0' : 'd-flex justify-content-center align-items-center flex-column'" cols="12">
                 <p class="text-center font-weight-bold text-white" :style="isMobile ? 'font-size: 70%' : ''">
-                    Призы, участвующие в ближайшем розыгрыше 16.06.2020
+                    Призы, участвующие в ближайшем розыгрыше 09.06.2020
                 </p>
                 <b-form-group v-if="!isMobile" class="pl-2 pr-2">
                     <div class="lays-cabinet-prizes p-xl-1 pl-xl-2 pr-xl-2">

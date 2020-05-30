@@ -42,9 +42,16 @@
                                         @click="openAuthorization"
                                         active-class="underline">
                                 <small class="text-uppercase font-weight-bold mr-1">
-                                    {{ $jwt.token() ? 'кабинет' : 'войти' }}
+                                    {{ loggedIn ? 'кабинет' : 'войти' }}
                                 </small>
                                 <img class="lays-icon" src="@/assets/enter.svg" alt="Войти">
+                            </b-nav-item>
+                            <b-nav-item v-if="loggedIn" class="lays-auth"
+                                        @click="logout"
+                                        active-class="underline">
+                                <small class="text-uppercase font-weight-bold">
+                                    выйти
+                                </small>
                             </b-nav-item>
                         </b-navbar-nav>
                     </b-collapse>
@@ -60,6 +67,16 @@
         props: {
           isMobile: Boolean
         },
+        data() {
+          return {
+              loggedIn: false
+          }
+        },
+        mounted() {
+            this.$root.$on('loggedIn', (data) => {
+                this.loggedIn = data;
+            })
+        },
         methods: {
             openAuthorization() {
                 if (this.$jwt.token()) {
@@ -71,6 +88,7 @@
             logout() {
                 this.$jwt.remove();
                 this.$router.push({name: 'main'});
+                this.$root.$emit('loggedIn', false);
             },
             scrollTo(id) {
                 if (this.$route.name.includes('cabinet')) {

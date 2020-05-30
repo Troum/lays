@@ -594,7 +594,7 @@ div.clickEffect{
     & .lays-timepicker {
       & + .form-control {
         display: inline-flex;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
         margin-bottom: 0!important;
         color: #DB2A1E !important;
@@ -624,6 +624,7 @@ div.clickEffect{
 }
 .lays-chosen-prize {
   transform: scale(1, 1.1);
+  border: 3px solid #070940;
   @media (max-width: 992px) {
     transform: none;
     border: 3px solid #9F0024;

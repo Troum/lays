@@ -83,7 +83,7 @@
                         </div>
                     </b-form-group>
                     <b-form-group class="text-center mt-4">
-                        <b-button class="lays-register-check" type="submit">
+                        <b-button :disabled="!form.bet" class="lays-register-check" type="submit">
                             Зарегистрировать чек
                         </b-button>
                     </b-form-group>
