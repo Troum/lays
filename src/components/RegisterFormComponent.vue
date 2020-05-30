@@ -174,7 +174,7 @@
                                       style="stroke: #DB2A1E;fill: none"></path>
                             </svg>
                             <span>
-                                    ознакомлен с <a class="lays-rules-agreement" href="#">&nbsp;правилами</a>
+                                    ознакомлен с <a class="lays-rules-agreement" href="https://lays.by/rules/rules.pdf">&nbsp;правилами</a>
                                 </span>
                         </p-check>
                     </b-form-group>
@@ -227,7 +227,7 @@
                     building: null,
                     apartment: null,
                     birth: null,
-                    sex: null,
+                    sex: 1,
                 }
             }
         },

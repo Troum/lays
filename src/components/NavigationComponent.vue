@@ -68,6 +68,10 @@
                     this.$bvModal.show('modal')
                 }
             },
+            logout() {
+                this.$jwt.remove();
+                this.$router.push({name: 'main'});
+            },
             scrollTo(id) {
                 if (this.$route.name.includes('cabinet')) {
                     this.$router.push({name: 'main'})

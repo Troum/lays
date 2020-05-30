@@ -22,7 +22,7 @@
                             </div>
                         </b-form-group>
                         <transition v-if="errors" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                            <div class="text-danger"><small>{{ errors[0] }}</small></div>
+                            <div class="text-danger text-center"><small>{{ errors[0] }}</small></div>
                         </transition>
                     </validation-provider>
                     <validation-provider name="Дата совершения покупки" rules="required" v-slot="{errors}">
@@ -36,7 +36,7 @@
                             </div>
                         </b-form-group>
                         <transition v-if="errors" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                            <div class="text-danger"><small>{{ errors[0] }}</small></div>
+                            <div class="text-danger text-center"><small>{{ errors[0] }}</small></div>
                         </transition>
                     </validation-provider>
                     <validation-provider name="Время совершения покупки" rules="required" v-slot="{errors}">
@@ -56,7 +56,7 @@
                             </div>
                         </b-form-group>
                         <transition v-if="errors" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                            <div class="text-danger"><small>{{ errors[0] }}</small></div>
+                            <div class="text-danger text-center"><small>{{ errors[0] }}</small></div>
                         </transition>
                     </validation-provider>
                     <b-form-group class="lays-rules-agreement text-center">
@@ -131,7 +131,7 @@
         },
         methods: {
             submit() {
-                if (Date.parse(this.form.bought_date) > Date.parse('2020-05-30T00:00:00')) {
+                if (Date.parse(this.form.bought_date) >= Date.parse('Sat May 30 2020 00:00:00 GMT+0300 (Москва, стандартное время)')) {
                     this.setDate();
                     this.$store.commit('loading', true);
                     this.$httpService.post('api/v1/auth/bet', this.$fdService.fill(this.form))
