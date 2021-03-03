@@ -21,7 +21,7 @@
     "material-design-icons": "^3.0.1",
     "mobile-device-detect": "^0.3.3",
     "pretty-checkbox-vue": "^1.1.9",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
